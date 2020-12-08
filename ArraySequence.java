@@ -9,6 +9,14 @@ public class ArraySequence implements IntegerSequence{
         }
         currentIndex = 0;
     }
+    public ArraySequence(IntegerSequence otherseq){
+        data = new int[otherseq.length()];
+        for (int i = 0; i < otherseq.length(); i++){
+            data[i] = otherseq.next();
+        }
+        otherseq.reset();
+        currentIndex = 0;
+    }
     public boolean hasNext(){
         return currentIndex <= data.length-1;
     }
